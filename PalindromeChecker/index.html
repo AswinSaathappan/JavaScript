@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Palindrome Checker</h2>
+        <div class="inputdiv">
+            <input type="textarea" id="input" placeholder="Enter palindrome string">
+        </div>
+        <div>
+            <button type="submit" onclick="check()">Palindrome check</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+      function check(){
+        const input = document.getElementById("input").value; // Get input
+            const cleaned = input.toLowerCase().replace(/[^a-z0-9]/g, ''); // Remove spaces and special characters . Why g is Important:
+           // When checking for palindromes, you need to clean the entire string, not just the first unwanted character. Using g ensures every matching character in the string is replaced.
+            const reversed = cleaned.split('').reverse().join(''); // Reverse the cleaned string
+
+            const result = document.getElementById("result"); // Get result element
+            if (cleaned === reversed) {
+                result.innerHTML = "Palindrome";
+            } else {
+                result.innerHTML = "Not a Palindrome";
+            }
+    }
+    </script>
+</body>
+</html>
