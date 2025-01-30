@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Words Calculator</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Type a sentence</h2>
+        <div class="inputdiv">
+            <textarea id="input"></textarea>
+        </div>
+        <div>
+            <button type="submit" onclick="calculateWords()">Calculate words</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+      function calculateWords(){
+        
+        const str = document.getElementById("input").value;
+
+        
+        let wordCount = 0;
+        let isWord = false;
+
+            // Loop through each character in the string
+            for (let i = 0; i < str.length; i++) {
+                const char = str[i];
+
+                // Check if the character is a letter (part of a word)
+                if (char !== ' ' && char !== '\t' && char !== '\n') {
+                    isWord = true;
+                } else if (isWord) {
+                    // If we find a space/tab/newline after a word, count the word
+                    wordCount++;
+                    isWord = false;
+                }
+            }
+
+            // Count the last word if the string doesn't end with space
+           
+                wordCount++;
+
+            // Display the result
+            const result = document.getElementById("result");
+            result.innerHTML = wordCount + " words";
+
+
+           /*// Initialize letter count
+            let letterCount = 0;
+
+           // Loop through each character in the string
+          for (let i = 0; i < str.length; i++) {
+          const char = str[i];
+
+          // Check if the character is a letter using a regular expression
+          if ([a-zA-Z].test(char)) {
+        letterCount++;
+          }
+         }*/   
+      }
+    </script>
+</body>
+</html>
