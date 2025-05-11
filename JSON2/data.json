@@ -1,0 +1,10 @@
+{
+    "name": "Aswin Saathappan",
+    "age": 18,
+    "city": "Madurai",
+    "skills": ["C", "C++", "Python", "Java"],
+    "interests": {
+        "field": "Data Science",
+        "hobbies": ["Singing", "Coding"]
+    }
+}
